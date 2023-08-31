@@ -1,0 +1,12 @@
+[Unit]
+Description= Sends signals over UDP to another computer. 
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c "cd $(dirname %p)/ && ./worlde_reader.py"
+Restart=always
+User=${USER}
+
+[Install]
+WantedBy=multi-user.target
+
